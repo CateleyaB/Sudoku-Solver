@@ -39,15 +39,15 @@ int readFile(char charArray[9][9]) {
 
 void printSudoku(Sudoku * sudoku) {
     for(int i=0; i<9; i++) {
-        if(i == 0) {printf("┌─────────┬─────────┬─────────┐\n");}
+        if(i == 0) {printf("\n┌─────────┬─────────┬─────────┐\n");}
         else if(i%3 == 0) {printf("├─────────┼─────────┼─────────┤\n");}
 
         for(int j=0; j<9; j++) {
             if(j%3 == 0) {printf("│");}
 
             /* replaces 0 with . to increase clarity on console*/
-            if(sudoku->rows[i][j].value != 0){
-                printf(" %d ", sudoku->rows[i][j].value);
+            if(sudoku->rows[i][j]->value != 0){
+                printf(" %d ", sudoku->rows[i][j]->value);
             } else {
                 printf(" . ");
 
@@ -56,4 +56,5 @@ void printSudoku(Sudoku * sudoku) {
         printf("│\n");
     }
     printf("└─────────┴─────────┴─────────┘\n");
+    printf("UNSOLVED = %d\n", UNSOLVED);
 }
