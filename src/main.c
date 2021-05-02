@@ -1,18 +1,15 @@
 #include "header.h"
 
-/* /cygdrive/c/users/Timothy/OneDrive/Desktop/Projects/Code/Sudoku Solver/C
+/* cygdrive/c/Users/Timothy/OneDrive/Desktop/Projects/Code/Sudoku\ Solver
 Here is the path, so I can stop going crazy from typing it all the time*/
 
 int main() {
     char puzzleChar[9][9];
-    int puzzle[9][9];
-    printf(" a \n b 1");
-    readFile(puzzleChar);
-    printf(" a \n b 2");
-    charToInt(puzzleChar, puzzle);
+    Sudoku * sudoku;
 
-    printf(" a \n b 3");
-    printPuzzle(puzzle);
+    if(readFile(puzzleChar) == 1) {return 0;}
+    sudoku = setupSudoku(puzzleChar);
+    printSudoku(sudoku);
 
     return 0;
 }
