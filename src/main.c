@@ -41,8 +41,13 @@ int main() {
     }
 
     if(progress == 1) {
-        printf("\nThe puzzle was unable to be solved with ");
-        printf("the current level of logic available in the program.\n");
+        if(UNSOLVED == 4) {
+            printf("\nThere is more than one solution to this puzzle.");
+            printf("\nPlease find a better puzzle next time.\n");
+        } else {
+            printf("\nThe puzzle was unable to be solved with ");
+            printf("the current level of logic available in the program.\n");
+        }
     } else {
         printf("\n Solved!\n");
     }
