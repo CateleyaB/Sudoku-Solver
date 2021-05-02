@@ -4,15 +4,29 @@
 int readFile(char charArray[9][9]) {
     char input[17][10];
     FILE* fp;
-    char inputFName[30];
-    int valid_file = 0;
+    char inputFName[100];
+    int valid_file = 0, i;
 
     while(valid_file == 0) {
         printf("Input the name of the unsolved sudoku text file or CANCEL to stop the program: ");
         scanf("%s", inputFName);
+
         if(strcmp(inputFName, "CANCEL") == 0){
             return 1;
-        } else if( access( inputFName, F_OK ) == 0 ) {
+        }
+
+        /* insert folder name into the front of inputFName */
+        for(i = 93; i >= 0; i --) {
+            inputFName[i + 6] = inputFName[i];
+        }
+        inputFName[0] = 'i';
+        inputFName[1] = 'n';
+        inputFName[2] = 'p';
+        inputFName[3] = 'u';
+        inputFName[4] = 't';
+        inputFName[5] = '/';
+
+        if( access( inputFName, F_OK ) == 0 ) {
             printf("Solving...\n");
             valid_file = 1;
         } else {

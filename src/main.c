@@ -17,7 +17,8 @@ int main() {
     sudoku = setupSudoku(puzzleChar, &valid);
     if(valid == 1) {
         printf("\nThat is not a valid sudoku puzzle, aborted.\n");
-        printf("(The values in the input file are not between 0 to 9)\n");
+        printf("(The values in the input file are not between 0 to 9,");
+        printf(" or there are missing values)\n");
         return 0;
     } else if(valid == 2) {
         printf("\nThat is not a valid sudoku puzzle, aborted.\n");
