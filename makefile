@@ -10,7 +10,7 @@ all: clear sudoku run clean
 
 clear:
 	clear
-	
+
 sudoku:
 	$(CC) $(SOURCES) $(CFLAGS) -o $@
 

@@ -1,21 +1,12 @@
 #ifndef HEADER_H
 #define HEADER_H
 
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
 
-// io functions
-int readFile(char charArray[9][9]);
-void printSudoku(Sudoku * sudoku);
-
-//setup function
-Sudoku * setupSudoku(const char charArray[9][9]);
-
-// solving functions
-//
-//
 
 typedef struct Square {
   int value;
@@ -29,5 +20,18 @@ typedef struct Sudoku {
   Square boxes[9][9];
   int unsolved;
 } Sudoku;
+
+
+// io functions
+int readFile(char charArray[9][9]);
+void printSudoku(Sudoku * sudoku);
+
+//setup function
+Sudoku * setupSudoku(const char charArray[9][9], int * valid);
+
+// solving functions
+//
+//
+
 
 #endif
