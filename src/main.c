@@ -35,11 +35,7 @@ int main() {
     } else if (progress == 0) {
         printf("\n Solved!\n");
     } else {
-<<<<<<< HEAD
         printf("\n Error: progress variable in main.c = %d", progress);
-=======
-        printf("\n Error: progress variable in main.c = %d", progress);a
->>>>>>> 4384c52e79239a931cd45adb4aa2433ab72d7820
         return 1;
     }
 
