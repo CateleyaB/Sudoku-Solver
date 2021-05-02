@@ -1,6 +1,37 @@
 #include "header.h"
 
 
+int groupDuplicateNumberCheck(Square ** group, const int number) {
+    int i, count = 0;
+
+    for(i = 0; i < 9; i ++) {
+        if(group[i]->value == number) {
+            count ++;
+        }
+    }
+
+    if(count > 1) {
+        return 1;
+    }
+    return 0;
+}
+
+
+int duplicateNumberCheck(Sudoku * sudoku) {
+    int i, number, x = 0;
+
+    for(i = 0; i < 9; i ++){
+        for(number = 1; number <= 9; number ++) {
+            x |= groupDuplicateNumberCheck(sudoku->rows[i], number);
+            x |= groupDuplicateNumberCheck(sudoku->columns[i], number);
+            x |= groupDuplicateNumberCheck(sudoku->boxes[i], number);
+        }
+    }
+
+    return x; /* 0 if no duplicates, else 1 */
+}
+
+
 Sudoku * setupSudoku(const char charArray[9][9], int * valid){
 
     Sudoku * sudoku;
@@ -43,6 +74,8 @@ Sudoku * setupSudoku(const char charArray[9][9], int * valid){
             }
         }
     }
+
+    if((* valid == 0) && (duplicateNumberCheck(sudoku) == 1)) {* valid = 2;}
 
     sudoku->unsolved = 81;
     return sudoku;

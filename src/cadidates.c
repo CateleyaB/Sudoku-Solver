@@ -32,3 +32,16 @@ void updateCandidates(Sudoku * sudoku, const Square * square) {
         }
     }
 }
+
+
+int validityCheck(Sudoku * sudoku) {
+    int i, j;
+    for(i = 0; i < 9; i ++) {
+        for(j = 0; j < 9; j ++) {
+            if(sudoku->rows[i][j]->candidates == 0) {
+                if(sudoku->rows[i][j]->value == 0) {return 1;}
+            }
+        }
+    }
+    return 0;
+}

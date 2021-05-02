@@ -16,12 +16,23 @@ int main() {
     if(readFile(puzzleChar) == 1) {return 0;}
     sudoku = setupSudoku(puzzleChar, &valid);
     if(valid == 1) {
-        printf("That is not a valid sudoku puzzle, aborted.\n");
-        return 1;
+        printf("\nThat is not a valid sudoku puzzle, aborted.\n");
+        printf("(The values in the input file are not between 0 to 9)\n");
+        return 0;
+    } else if(valid == 2) {
+        printf("\nThat is not a valid sudoku puzzle, aborted.\n");
+        printf("(There are multiple of the same value in a group)\n");
+        return 0;
     }
 
     printSudoku(sudoku);
     while(progress == 0 && UNSOLVED > 0) {
+        if(validityCheck(sudoku) == 1) {
+            printf("\nThat is not a valid sudoku puzzle, aborted.\n");
+            printf("(There is an empty square with no candidates)\n");
+            return 0;
+        }
+
         progress = nakedSingles(sudoku);
         if(progress == 1) {
             progress = hiddenSingles(sudoku);
@@ -32,11 +43,8 @@ int main() {
     if(progress == 1) {
         printf("\nThe puzzle was unable to be solved with ");
         printf("the current level of logic available in the program.\n");
-    } else if (progress == 0) {
-        printf("\n Solved!\n");
     } else {
-        printf("\n Error: progress variable in main.c = %d", progress);
-        return 1;
+        printf("\n Solved!\n");
     }
 
     return 0;

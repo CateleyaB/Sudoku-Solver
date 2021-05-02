@@ -56,5 +56,4 @@ void printSudoku(Sudoku * sudoku) {
         printf("│\n");
     }
     printf("└─────────┴─────────┴─────────┘\n");
-    printf("UNSOLVED = %d\n", UNSOLVED);
 }

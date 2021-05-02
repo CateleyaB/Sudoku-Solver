@@ -32,12 +32,15 @@ typedef struct Sudoku {
 int readFile(char charArray[9][9]);
 void printSudoku(Sudoku * sudoku);
 
-// setup function
+// setup functions
+int groupDuplicateNumberCheck(Square ** group, const int number);
+int duplicateNumberCheck(Sudoku * sudoku);
 Sudoku * setupSudoku(const char charArray[9][9], int * valid);
 
 // candidates functions
 void updateSquareCandidates(int * candidates, const int value);
 void updateCandidates(Sudoku * sudoku, const Square * square);
+int validityCheck(Sudoku * sudoku);
 
 // singles functions
 int nakedSingles(Sudoku * sudoku);
