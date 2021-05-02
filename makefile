@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -Wall -I$(IDIR) -g
+CFLAGS = -Wall -I$(IDIR)
 
 IDIR = ./include/
 SRCDIR = ./src/
@@ -19,3 +19,6 @@ run:
 
 clean:
 	rm sudoku
+
+debug:
+	$(CC) $(SOURCES) $(CFLAGS) -g -o $@
