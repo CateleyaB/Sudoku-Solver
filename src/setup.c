@@ -46,7 +46,6 @@ Sudoku * setupSudoku(const char charArray[9][9], int * valid){
 
         for(j = 0; j < 9; j ++) {
             squares[i][j] = (Square*) malloc(sizeof(Square));
-            //If memory runs out, I think just increase this malloc?
 
             squares[i][j]->value = (int)(charArray[i][j] - '0');
             squares[i][j]->candidates = pow(2, 9) - 1;
