@@ -33,7 +33,7 @@ To install, just pull, clone, or download the repository and place the main fold
 
 ### Executing program
 
-Navigate inside of the Sudoku Solver folder, wherever you placed it and use the make command:
+Navigate inside of the Sudoku Solver folder, wherever you placed it, and use the make command:
 ```
 make
 ```
