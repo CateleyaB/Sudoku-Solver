@@ -40,7 +40,7 @@ make
 
 ## Version History
 
-* 0.1 (May 3)
+* 0.1 (May 3 2021)
     * First working version; can solve most puzzles by using both naked and hidden singles.
 
 ## Acknowledgments
