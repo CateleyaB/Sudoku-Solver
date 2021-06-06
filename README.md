@@ -6,7 +6,8 @@ This is a program I made which can solve most sudoku puzzles.
 
 The program takes a text file with 9 lines of 9 digits as an input. 
 e.g. 
-```000200740
+```
+000200740
 001730960
 600190000
 200900670
@@ -14,7 +15,8 @@ e.g.
 046007008
 000062007
 065079300
-023001000```
+023001000
+```
 
 The program will proceed to solve the sudoku puzzle when it recieves a valid input and print the steps to the console.
 The current l
