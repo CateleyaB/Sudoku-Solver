@@ -15,7 +15,7 @@ int nakedSingles(Sudoku * sudoku) {
 
                     /* input value of naked single */
                     sudoku->rows[i][j]->value = a + 1;
-                    UNSOLVED --;
+                    sudoku->unsolved --;
                     x = 0;
 
                     updateCandidates(sudoku, sudoku->rows[i][j]);
@@ -44,7 +44,7 @@ int groupHiddenSingles(Square ** group, const int candidate, Sudoku * sudoku){
 
         /*input value of hidden single */
         group[location]->value = candidate;
-        UNSOLVED --;
+        sudoku->unsolved --;
         x = 0;
 
         updateCandidates(sudoku, group[location]);

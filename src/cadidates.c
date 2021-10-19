@@ -10,7 +10,7 @@ void updateSquareCandidates(int * candidates, const int value) {
     e.g. if the function receives candidates = [001 010 110] and value = 3
     the function changes candidates to [001 010 010]
 */
-    if(  ( ((* candidates) >> (value - 1)) & 1 ) == 1  ) {
+    if(((* candidates) >> (value - 1)) & 1) {
         * candidates = * candidates - pow(2, value - 1);
     }
 }
@@ -31,6 +31,7 @@ void updateCandidates(Sudoku * sudoku, const Square * square) {
             updateSquareCandidates(candidates, square->value);
         }
     }
+    sudoku->rows[square->location[0]][square->location[1]]->candidates = 0;
 }
 
 

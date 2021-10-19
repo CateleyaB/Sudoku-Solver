@@ -7,9 +7,7 @@
 #include <unistd.h>
 #include <string.h>
 #include <math.h>
-
-
-extern int UNSOLVED;
+#include <assert.h>
 
 
 typedef struct Square {
@@ -28,6 +26,9 @@ typedef struct Sudoku {
 } Sudoku;
 
 
+// error function
+void exitFromError(int errorCode, Sudoku * sudoku);
+
 // io functions
 int readFile(char charArray[9][9]);
 void printSudoku(Sudoku * sudoku);
@@ -36,6 +37,15 @@ void printSudoku(Sudoku * sudoku);
 int groupDuplicateNumberCheck(Square ** group, const int number);
 int duplicateNumberCheck(Sudoku * sudoku);
 Sudoku * setupSudoku(const char charArray[9][9], int * valid);
+
+// sudoku management functions
+Sudoku * copySudoku(Sudoku * src);
+void freeSudoku(Sudoku * sudoku);
+
+// solve functions
+void solveAsHuman(Sudoku * sudoku);
+int solveWithBruteForce(Sudoku * sudoku);
+int attemptSolveAsHuman(Sudoku * sudoku);
 
 // candidates functions
 void updateSquareCandidates(int * candidates, const int value);
@@ -46,6 +56,5 @@ int validityCheck(Sudoku * sudoku);
 int nakedSingles(Sudoku * sudoku);
 int groupHiddenSingles(Square ** group, const int candidate, Sudoku * sudoku);
 int hiddenSingles(Sudoku * sudoku);
-
 
 #endif

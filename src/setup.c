@@ -33,13 +33,13 @@ int duplicateNumberCheck(Sudoku * sudoku) {
 
 
 Sudoku * setupSudoku(const char charArray[9][9], int * valid){
-
     Sudoku * sudoku;
     Square *** squares;
     int i, j;
 
     sudoku = malloc(sizeof(Sudoku));
     squares = (Square ***) malloc(sizeof(Square **) * 9);
+    sudoku->unsolved = 81;
 
     for(i = 0; i < 9; i ++) {
         squares[i] = (Square **) malloc(sizeof(Square *) * 9);
@@ -62,9 +62,12 @@ Sudoku * setupSudoku(const char charArray[9][9], int * valid){
 
             if(squares[i][j]->value < 0 || squares[i][j]->value > 9) {* valid = 1;}
 
-            if(squares[i][j]->value != 0) {UNSOLVED --;}
+            if(squares[i][j]->value != 0) {sudoku->unsolved --; }
         }
+
+        free(squares[i]);
     }
+    free(squares);
 
     for(i = 0; i < 9; i ++) {
         for(j = 0; j < 9; j ++) {
@@ -76,6 +79,5 @@ Sudoku * setupSudoku(const char charArray[9][9], int * valid){
 
     if((* valid == 0) && (duplicateNumberCheck(sudoku) == 1)) {* valid = 2;}
 
-    sudoku->unsolved = 81;
     return sudoku;
 }
