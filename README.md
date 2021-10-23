@@ -1,12 +1,12 @@
 # Sudoku Solver
 
-This is a program I made which can solve most sudoku puzzles.
+This is a program I made which can solve any sudoku puzzle.
 
 ## Description
 
 The program takes a text file with 9 lines of 9 digits as an input. 
 The program will proceed to solve the sudoku puzzle when it recieves a valid input and print the steps to the console.  
-The current algorithm does this by finding [naked and hidden singles](http://hodoku.sourceforge.net/en/tech_singles.php) until it is solved or gets stuck.  
+The current algorithm does this by finding [naked and hidden singles](http://hodoku.sourceforge.net/en/tech_singles.php) until it is solved or gets stuck. When it gets stuck, it uses a recursive function guess a value for a square and then tries to solve again using naked and hidden singles, and more guessing if necessary. If it finds it has guessed wrong, then it returns to before the guess was made and tries the next reasonable number.
 Other than the input file, all IO is console-based and the program is compiled each time it is run using a makefile.
 
 ### Dependencies
@@ -40,8 +40,12 @@ make
 3. Input the name of the input file with the puzzle you wish to solve.
 ## Version History
 
-* 0.1 (May 3 2021)
-    * First working version; can solve most puzzles by using both naked and hidden singles.
+* V1 (May 3 2021)
+   * First working version; can solve most puzzles by using both naked and hidden singles.
+   * Based off the YouTube tutorial below.
+* V2 (Oct. 22 2021)
+   * Added recursive guessing algorithm (referred to as brute force in the code); can no solve all puzzles. 
+   * Coded this on my own.
 
 ## Acknowledgments
 Based on the following YouTube tutorial (with notable changes to streamline the code):
